@@ -1,9 +1,7 @@
-
 [Unit]
 Description=Configure Flathub for larp.os-fedora
 Wants=network-online.target
 After=network-online.target
-ConditionPathExists=/usr/bin/flatpak
 
 [Service]
 Type=oneshot
