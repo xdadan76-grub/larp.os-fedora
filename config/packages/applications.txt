@@ -1,0 +1,25 @@
+
+# larp.os-fedora
+# Default applications
+
+firefox
+libreoffice
+gimp
+vlc
+fastfetch
+btop
+htop
+file-roller
+p7zip
+unzip
+zip
+git
+curl
+wget
+neofetch
+gnome-disk-utility
+virt-manager
+kdenlive
+obs-studio
+keepassxc
+qbittorrent
