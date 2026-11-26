@@ -1,19 +1,28 @@
 
-#!/bin/bash
+#!/usr/bin/env bash
 set -Eeuo pipefail
 
 # larp.os-fedora
-# Image configuration
+# KIWI image configuration
 
-systemctl enable NetworkManager.service
-systemctl enable firewalld.service
-systemctl enable bluetooth.service
-systemctl enable sddm.service
+echo "Configuring larp.os-fedora..."
 
-systemctl set-default graphical.target
+# Enable graphical startup
+systemctl --root=/ enable graphical.target
 
-# Enable Flathub when Flatpak is installed
-if command -v flatpak >/dev/null 2>&1; then
-    flatpak remote-add --system --if-not-exists \
-        flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+# Enable NetworkManager if installed
+if [[ -f /usr/lib/systemd/system/NetworkManager.service ]]; then
+    systemctl --root=/ enable NetworkManager.service
 fi
+
+# Enable SDDM if installed
+if [[ -f /usr/lib/systemd/system/sddm.service ]]; then
+    systemctl --root=/ enable sddm.service
+fi
+
+# Enable firewall if installed
+if [[ -f /usr/lib/systemd/system/firewalld.service ]]; then
+    systemctl --root=/ enable firewalld.service
+fi
+
+echo "larp.os-fedora configuration completed."
