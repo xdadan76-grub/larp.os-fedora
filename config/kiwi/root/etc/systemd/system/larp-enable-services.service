@@ -1,0 +1,11 @@
+[Unit]
+Description=Initialize larp.os-fedora services
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /usr/local/bin/enable-services.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
