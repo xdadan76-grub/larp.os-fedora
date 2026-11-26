@@ -1,0 +1,15 @@
+
+# larp.os-fedora
+# GRUB boot configuration
+
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="larp.os-fedora"
+
+GRUB_DEFAULT=saved
+GRUB_SAVEDEFAULT=true
+
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+
+GRUB_CMDLINE_LINUX="rhgb quiet"
+GRUB_DISABLE_RECOVERY="false"
