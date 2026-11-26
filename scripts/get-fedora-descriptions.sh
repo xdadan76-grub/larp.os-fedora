@@ -2,20 +2,27 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-REPO="https://forge.fedoraproject.org/releng/fedora-kiwi-descriptions"
-DEST="build/fedora-kiwi-descriptions"
-
 ROOT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 
-if [[ -e "$ROOT_DIR/$DEST" ]]; then
-    echo "Fedora descriptions already exist."
-    echo "No files were changed."
+REPO="https://forge.fedoraproject.org/releng/kiwi-descriptions.git"
+DEST="$ROOT_DIR/build/fedora-kiwi-descriptions"
+
+if ! command -v git >/dev/null 2>&1; then
+    echo "ERROR: Git is required."
+    exit 1
+fi
+
+if [[ -d "$DEST/.git" ]]; then
+    echo "Fedora descriptions already downloaded."
     exit 0
 fi
 
-mkdir -p "$ROOT_DIR/build"
+if [[ -e "$DEST" ]]; then
+    echo "ERROR: Destination already exists."
+    exit 1
+fi
 
-git clone "$REPO" "$ROOT_DIR/$DEST"
+git clone "$REPO" "$DEST"
 
-echo "Fedora image descriptions downloaded."
-echo "Review the Fedora 45 definitions before using them."
+echo "Fedora descriptions downloaded."
+echo "Review the Fedora 45 branch before building."
