@@ -1,0 +1,27 @@
+
+# Build output
+build/output/
+build/tmp/
+*.iso
+*.img
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Editors
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
