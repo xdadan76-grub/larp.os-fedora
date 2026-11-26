@@ -1,0 +1,28 @@
+
+# larp.os-fedora
+# KDE Plasma Desktop Environment
+
+plasma-desktop
+plasma-workspace
+plasma-workspace-x11
+plasma-systemsettings
+plasma-nm
+plasma-pa
+plasma-discover
+sddm
+sddm-kcm
+dolphin
+konsole
+kate
+ark
+gwenview
+okular
+spectacle
+kcalc
+kde-gtk-config
+breeze-gtk
+breeze-icon-theme
+xdg-desktop-portal
+xdg-desktop-portal-kde
+NetworkManager
+NetworkManager-wifi
